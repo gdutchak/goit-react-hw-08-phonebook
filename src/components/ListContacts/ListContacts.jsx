@@ -7,9 +7,11 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const ListContacts = () => {
     const dispatch = useDispatch()
-    let contact = useSelector((state) => state.contacts.items);
+    let contact = useSelector((state) => state.contacts);
+    // .items
     const filter = useSelector((state) => state.filter);
-    const loading = useSelector((state) => state.contacts.isLoading)
+    const loading = useSelector((state) => state.contacts)
+    // .isLoading
 
     useEffect(() => {
         dispatch(fetchContacts())

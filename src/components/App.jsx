@@ -4,14 +4,15 @@ import { HomePage } from "pages/Home"
 import { LoginPage } from "pages/LogIn"
 import { LogoutPage } from "pages/LogOut"
 import { SigninPage } from "pages/SignIn"
-import { Navigate, Route, Routes } from "react-router-dom"
-import { useSelector } from "react-redux"
+import {  Route, Routes } from "react-router-dom"
+// import { useSelector } from "react-redux"
 
 export function App() {
-  const login = useSelector(state=>state.isLogin)
-  if(login){
-    return <Navigate to={'/contacts'}/>
-  }
+  console.log('app');
+  // const login = useSelector(state=>state.isLogin)
+  // if(login){
+  //   return <Navigate to={'/contacts'}/>
+  // }
   return (
     <Routes>
       <Route path="/" element={<HomePage/>}/>

@@ -6,7 +6,7 @@ export const UserSignup = createAsyncThunk(
     async(data,{rejectWithValue})=>{
         try {
             const response = await AuthSignup(data)
-            return response.data;
+            return response;
         } catch (error) {
             return rejectWithValue(error.message)
         }

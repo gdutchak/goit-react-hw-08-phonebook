@@ -1,26 +1,19 @@
 import { configureStore} from '@reduxjs/toolkit';
-import { contactSlice } from './sliceContact';
-import { AuthSlice } from './sliceAuth';
-// middleware: (getDefaultMiddleware) =>
-//     getDefaultMiddleware({
-//         serializableCheck: {
-//             ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-//         },
-//     }),
-// const middleware = 
-//    (getDefaultMiddleware)=>
-//    getDefaultMiddleware({
-//         },
-//       })
+import contactSlice from './sliceContact';
+import AuthSlice from './sliceAuth';
+import sliceFilter from './sliceFilter';
 
-
+const middleware = 
+(getDefaultMiddleware) =>
+    getDefaultMiddleware({
+        serializableCheck: {
+            // ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+    })
+   
 export const store = configureStore({
-    reducer: {
-        contacts: contactSlice.reducer,
-        users: AuthSlice.reducer,
-    },
-    // middleware,
+    reducer:AuthSlice,contactSlice,sliceFilter,
+    middleware,
     devTools: process.env.NODE_ENV === 'development',
 })
 
-export const { addContact, addFilter, deleteContact } = contactSlice.actions;

@@ -7,7 +7,8 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export function FormContacts() {
     const dispatch = useDispatch()
-    const contact = useSelector((state) => state.contacts.items)
+    const contact = useSelector((state) => state.contacts)
+    // .items
 
     const [name, setName] = useState('')
     const [number, setNumber] = useState('')

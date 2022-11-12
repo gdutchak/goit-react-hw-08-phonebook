@@ -6,17 +6,12 @@ let initialState = {
         items: [],
         isLoading: false,
         error: null,
-    },
-    filter: ""
+    }
 }
 
-export const contactSlice = createSlice({
-    name: 'contact', initialState,
-    reducers: {
-        addFilter: (state, action) => {
-            state.filter = action.payload;
-        }
-    },
+const contactSlice = createSlice({
+    name: 'contact', 
+    initialState,
     extraReducers: {
         [fetchContacts.pending]: (state) => {
             state.contacts.isLoading = true
@@ -53,3 +48,5 @@ export const contactSlice = createSlice({
         },
     }
 })
+
+export default contactSlice.reducer

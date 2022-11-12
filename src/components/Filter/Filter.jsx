@@ -1,6 +1,6 @@
 import { Input, Label } from 'components/FormContacts/FormContact.styled';
 import { useDispatch, useSelector } from "react-redux";
-import { addFilter } from "redux/store";
+import { addFilter } from 'redux/sliceFilter';
 
 export const Filter = () => {
     const filter = useSelector((state) => state.filter)

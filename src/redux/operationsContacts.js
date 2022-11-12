@@ -8,7 +8,7 @@ export const fetchContacts = createAsyncThunk(
             const response = await getContacts()
             return response
         } catch (error) {
-            return rejectWithValue(error)
+            return rejectWithValue(error.message)
         }
     },
 )
