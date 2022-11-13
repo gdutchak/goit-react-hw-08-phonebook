@@ -2,10 +2,10 @@ import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 
 export const Private = () =>{
-    const isLogin = useSelector(state=>state.isLogin)
+    const token = useSelector(state=>state.token)
 
-    if (!isLogin){
-        return <Navigate to={'/'}/>
+    if (!token){
+        return <Navigate to='/' replace/>
     }
     return <Outlet/>
 }

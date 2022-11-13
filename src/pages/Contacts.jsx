@@ -6,7 +6,7 @@ import { LogoutPage } from './LogOut';
 export const Contacts = ()=>{
 
     return(
-        <>
+        <section>
         <div style={{ padding: 40 }}>
       <h1>Phonebook</h1>
       <FormContacts ></FormContacts>
@@ -15,6 +15,6 @@ export const Contacts = ()=>{
       <ListContacts ></ListContacts>
     </div >
     <LogoutPage/>
-        </>
+        </section>
     )
 }

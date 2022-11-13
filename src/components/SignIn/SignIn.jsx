@@ -1,7 +1,16 @@
 import { userSignup } from "redux/operationsAuth";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { AtSignIcon, EmailIcon, LockIcon} from '@chakra-ui/icons'
+import { AtSignIcon, EmailIcon, LockIcon} from '@chakra-ui/icons';
+import {
+    Box,
+    Button,
+    Flex,
+    FormControl,
+    FormLabel,
+    Input,
+    VStack
+  } from "@chakra-ui/react";
 
 export const Signin = ()=>{
     const dispatch = useDispatch()
@@ -21,24 +30,38 @@ export const Signin = ()=>{
     }
     
         return(
+<Flex bg="gray.100" align="center" justify="center" h="100vh">
+      <Box bg="white" p={6} rounded="md">
             <form autoComplete="on" onSubmit={handleSubmit}>
-                <label>
-                <AtSignIcon/>
+            <VStack spacing={4} align="flex-start">
+            <FormControl>
+                <FormLabel>
+                <AtSignIcon height={21} marginRight={1}/>
                     <span>Your name</span>
-                    <input type='text' name="name" placeholder="Enter your name" required/>
-                </label>
-                <label>
-                <EmailIcon/>
+                    <Input type='text' name="name" placeholder="Enter your name" required/>
+                </FormLabel>
+                </FormControl>
+                
+                <FormControl>
+                <FormLabel>
+                <EmailIcon height={21} marginRight={1}/>
                 <span>Your email</span>
-                    <input type='email' name="email" placeholder="Enter your email" required/>
-                </label>
-                <label>
-                <LockIcon/>
+                    <Input type='email' name="email" placeholder="Enter your email" required/>
+                </FormLabel>
+                </FormControl>
+
+                <FormControl>
+                <FormLabel>
+                <LockIcon height={21} marginRight={1}/>
                 <span>Your password</span>
-                    <input type='password' name='password' placeholder="Enter your password" required/>
-                </label>
-                <button type="submit">Sign in</button>
+                    <Input type='password' name='password' placeholder="Enter your password" required/>
+                </FormLabel>
+                <Button type="submit">Sign in</Button>
+                </FormControl>
+                </VStack>
             </form>
+            </Box>
+    </Flex>
         )
     }
 

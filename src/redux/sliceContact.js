@@ -20,7 +20,7 @@ export const contactSlice = createSlice({
             state.contacts.items = action.payload
             state.contacts.isLoading = false
         },
-        [fetchContacts.error]: (state, action) => {
+        [fetchContacts.rejected]: (state, action) => {
             state.contacts.isLoading = false
             state.contacts.error = action.payload
         },
@@ -31,7 +31,7 @@ export const contactSlice = createSlice({
             state.contacts.isLoading = false
             state.contacts.items.push(action.payload)
         },
-        [addContactNumber.error]: (state, action) => {
+        [addContactNumber.rejected]: (state, action) => {
             state.contacts.isLoading = false
             state.contacts.error = action.payload
         },
@@ -42,7 +42,7 @@ export const contactSlice = createSlice({
             state.contacts.isLoading = false
             state.contacts.items = state.contacts.items.filter(({ id }) => id !== action.payload)
         },
-        [deleteContactNumber.error]: (state, action) => {
+        [deleteContactNumber.rejected]: (state, action) => {
             state.contacts.isLoading = false
             state.contacts.error = action.payload
         },

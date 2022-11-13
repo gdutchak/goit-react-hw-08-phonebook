@@ -21,16 +21,20 @@ export function App() {
 
   return (
     <Routes> 
-      <Route element={<Public/>}>
-      <Route path="/" element={<HomePage/>}/>
+<Route path="/" element={<HomePage/>}/>
+
+      <Route path="/" element={<Public restricted/>}>
       <Route path="signup" element={<SigninPage/>}/>
       <Route path="login" element={<LoginPage/>}/>
       <Route path="logout" element={<LogoutPage/>}/>
       </Route>
-      <Route element={<Private/>}>
+
+      <Route path="contacts" element={<Private/>}>
       <Route path="contacts" element={<Contacts/>}/>
       </Route>
+
       <Route path="*" element={<ErrorPage/>}/>
+
     </Routes>
   )
 }
