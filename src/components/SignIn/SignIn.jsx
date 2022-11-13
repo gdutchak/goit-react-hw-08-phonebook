@@ -1,4 +1,4 @@
-import { UserSignup } from "redux/operationsAuth";
+import { userSignup } from "redux/operationsAuth";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
@@ -13,7 +13,7 @@ export const Signin = ()=>{
             email: e.target.email.value,
             password: e.target.password.value,
         }
-        return dispatch(UserSignup(data))
+        return dispatch(userSignup(data))
     }
     if(login){
         return <Navigate to='/contacts'/>

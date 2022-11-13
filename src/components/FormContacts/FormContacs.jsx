@@ -15,7 +15,7 @@ export function FormContacts() {
 
     const addContactItem = (e) => {
         e.preventDefault();
-        if (contact.find(item => item.name.toLowerCase() === name.toLowerCase())) {
+        if (contact && contact.find(item => item.name.toLowerCase() === name.toLowerCase())) {
             alert(`This name is already in contacts!`)
             return
         }

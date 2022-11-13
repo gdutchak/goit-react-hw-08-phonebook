@@ -1,6 +1,6 @@
 import { configureStore} from '@reduxjs/toolkit';
 import contactSlice from './sliceContact';
-import AuthSlice from './sliceAuth';
+import authSlice from './sliceAuth';
 import sliceFilter from './sliceFilter';
 
 const middleware = 
@@ -10,9 +10,13 @@ const middleware =
             // ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
     })
-   
+
 export const store = configureStore({
-    reducer:AuthSlice,contactSlice,sliceFilter,
+    reducer: {
+        users: authSlice,
+        contact: contactSlice,
+        filter: sliceFilter,
+    },
     middleware,
     devTools: process.env.NODE_ENV === 'development',
 })

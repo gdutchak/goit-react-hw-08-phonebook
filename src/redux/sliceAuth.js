@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { UserSignup, UserLogin, UserLogout } from "./operationsAuth";
+import { userSignup, userLogin, userLogout } from "./operationsAuth";
 
 const initialState = {
     user:{ },
@@ -9,54 +9,54 @@ const initialState = {
     error: null,
 }
 
-const AuthSlice = createSlice({
-    name: 'user',
+const authSlice = createSlice({
+    name: 'users',
     initialState,
     reducers:{},
     extraReducers:{
-        [UserSignup.pending]:(state)=>{
+        [userSignup.pending]:(state)=>{
             state.isLoading=true
         },
-        [UserSignup.fulfilled]:(state, action)=>{
-            console.log(state.user);
+        [userSignup.fulfilled]:(state, action)=>{
             state.isLoading = false
             state.user = action.payload.user
            state.token = action.payload.token
            state.isLogin = true
-           console.log(state.user);
+           state.error = null
         },
-        [UserSignup.rejected]:(state, action)=>{
+        [userSignup.rejected]:(state, action)=>{
             state.isLoading=false
             state.error=action.payload
-            console.log(action);
         },
-        [UserLogin.pending]:(state, action)=>{
+        [userLogin.pending]:(state, action)=>{
             state.isLoading=true
         },
-        [UserLogin.fulfilled]:(state,action)=>{
+        [userLogin.fulfilled]:(state,action)=>{
             state.isLoading = false
              state.user = action.payload.user
            state.token = action.payload.token
            state.isLogin = true
+           state.error = null
         },
-        [UserLogin.rejected]:(state, action)=>{
+        [userLogin.rejected]:(state, action)=>{
              state.isLoading = false
              state.error=action.payload
         },
-        [UserLogout.pending]:(state)=>{
+        [userLogout.pending]:(state)=>{
             state.isLoading=true
         },
-        [UserLogout.fulfilled]:(state)=>{
+        [userLogout.fulfilled]:(state)=>{
              state.isLoading = false
              state.user = {}
            state.token = ''
            state.isLogin = false
+           state.error = null
         },
-        [UserLogout.rejected]:(state, action)=>{
+        [userLogout.rejected]:(state, action)=>{
              state.isLoading=false
             state.error=action.payload
         }
     }
 })
 
-export default AuthSlice.reducer;
+export default authSlice.reducer;

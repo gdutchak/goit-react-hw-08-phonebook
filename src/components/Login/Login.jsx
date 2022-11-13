@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { UserLogin } from "redux/operationsAuth";
+import { userLogin } from "redux/operationsAuth";
 import { Navigate } from "react-router-dom";
 
 export const Login = ()=>{
@@ -12,7 +12,7 @@ const login = useSelector(state=>state.isLogin)
             email: e.target.email.value,
             password: e.target.password.value,
         }
-        return dispatch(UserLogin(data))
+        return dispatch(userLogin(data))
     }
 if(login){
     return <Navigate to={'/contacts'}/>

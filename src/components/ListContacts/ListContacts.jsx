@@ -18,7 +18,7 @@ export const ListContacts = () => {
     }, [dispatch])
 
     if (filter) {
-        contact = contact.filter(({ name }) => name.toLowerCase().includes(filter.toLowerCase()));
+        // contact = contact.filter(({ name }) => name.toLowerCase().includes(filter.toLowerCase()));
     }
     return (<ul>
         {loading && <ClipLoader />}

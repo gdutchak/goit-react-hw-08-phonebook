@@ -12,19 +12,30 @@ export const setToken = (token) => {
     instance.defaults.headers.common.authorization = "";
 }
 
-export const AuthSignup = async(data)=>{
+export const authSignup = async(data)=>{
     const response = await instance.post('/users/signup', data)
     setToken(response.data.token)
     return response.data;
 }
 
-export const AuthLogin = async(data)=>{
+export const authLogin = async(data)=>{
     const response = await instance.post('/users/login', data)
     setToken(response.data.token)
     return response.data
 }
 
-export const AuthLogout = async()=>{
+export const authLogout = async()=>{
     const response = await instance.post('/users/logout')
     return response.data
+}
+
+export const authCurrentUser = async(token)=>{
+try {
+    setToken(token)
+    const response = await instance.get('/users/current')
+    return response
+} catch (error) {
+    setToken()
+    throw error
+}
 }

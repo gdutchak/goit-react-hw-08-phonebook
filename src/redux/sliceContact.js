@@ -29,7 +29,7 @@ const contactSlice = createSlice({
         },
         [addContactNumber.fulfilled]: (state, action) => {
             state.contacts.isLoading = false
-            state.contacts.items.push(action.meta.arg)
+            state.contacts.items.push(action.payload)
         },
         [addContactNumber.error]: (state, action) => {
             state.contacts.isLoading = false
@@ -40,7 +40,7 @@ const contactSlice = createSlice({
         },
         [deleteContactNumber.fulfilled]: (state, action) => {
             state.contacts.isLoading = false
-            state.contacts.items = state.contacts.items.filter(({ id }) => id !== action.meta.arg)
+            state.contacts.items = state.contacts.items.filter(({ id }) => id !== action.payload)
         },
         [deleteContactNumber.error]: (state, action) => {
             state.contacts.isLoading = false

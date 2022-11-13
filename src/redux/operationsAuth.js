@@ -1,36 +1,50 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { AuthLogin, AuthLogout, AuthSignup } from "./apiAuth";
+import { authLogin, authLogout, authSignup, authCurrentUser } from "./apiAuth";
 
-export const UserSignup = createAsyncThunk(
+export const userSignup = createAsyncThunk(
     'users/signup',
     async(data,{rejectWithValue})=>{
         try {
-            const response = await AuthSignup(data)
+            const response = await authSignup(data)
             return response;
         } catch (error) {
             return rejectWithValue(error.message)
         }
     }
 )
-export const UserLogin = createAsyncThunk(
+export const userLogin = createAsyncThunk(
     'users/login',
     async(data,{rejectWithValue})=>{
         try {
-            const response = await AuthLogin(data)
-            return response.data
+            const response = await authLogin(data)
+            return response
         } catch (error) {
             return rejectWithValue(error.message)
         }
     }
 )
-export const UserLogout = createAsyncThunk(
+export const userLogout = createAsyncThunk(
     'users/logout',
     async(_,{rejectWithValue})=>{
         try {
-            const response = await AuthLogout()
-            return response.data
+            const response = await authLogout()
+            return response
         } catch (error) {
             return rejectWithValue(error.message)
+        }
+    }
+)
+
+export const getCurrentUser = createAsyncThunk(
+    'users/current',
+    async (_, {rejectWithValue, getState})=>{
+        try {
+            const {auth} = getState()
+            console.log(auth);
+            const response = await authCurrentUser(auth.token)
+            return response
+        } catch (error) {
+           return rejectWithValue(error)
         }
     }
 )
