@@ -8,24 +8,28 @@ import { useEffect } from "react"
 import {  Route, Routes } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { getCurrentUser } from "redux/operationsAuth"
-// import { useSelector } from "react-redux"
+import { Private } from "./Private/Private"
+import { Public } from "./Public/Public"
 
 export function App() {
   console.log('app');
   const dispatch = useDispatch()
-  // const login = useSelector(state=>state.isLogin)
 
   useEffect(()=>{
     dispatch(getCurrentUser)
   }, [dispatch])
 
   return (
-    <Routes>
+    <Routes> 
+      <Route element={<Public/>}>
       <Route path="/" element={<HomePage/>}/>
       <Route path="signup" element={<SigninPage/>}/>
       <Route path="login" element={<LoginPage/>}/>
       <Route path="logout" element={<LogoutPage/>}/>
+      </Route>
+      <Route element={<Private/>}>
       <Route path="contacts" element={<Contacts/>}/>
+      </Route>
       <Route path="*" element={<ErrorPage/>}/>
     </Routes>
   )

@@ -9,7 +9,7 @@ let initialState = {
     }
 }
 
-const contactSlice = createSlice({
+export const contactSlice = createSlice({
     name: 'contact', 
     initialState,
     extraReducers: {
@@ -48,5 +48,3 @@ const contactSlice = createSlice({
         },
     }
 })
-
-export default contactSlice.reducer

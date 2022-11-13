@@ -1,6 +1,7 @@
 import { userSignup } from "redux/operationsAuth";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
+import { AtSignIcon, EmailIcon, LockIcon} from '@chakra-ui/icons'
 
 export const Signin = ()=>{
     const dispatch = useDispatch()
@@ -22,14 +23,17 @@ export const Signin = ()=>{
         return(
             <form autoComplete="on" onSubmit={handleSubmit}>
                 <label>
+                <AtSignIcon/>
                     <span>Your name</span>
                     <input type='text' name="name" placeholder="Enter your name" required/>
                 </label>
                 <label>
+                <EmailIcon/>
                 <span>Your email</span>
                     <input type='email' name="email" placeholder="Enter your email" required/>
                 </label>
                 <label>
+                <LockIcon/>
                 <span>Your password</span>
                     <input type='password' name='password' placeholder="Enter your password" required/>
                 </label>
@@ -37,3 +41,7 @@ export const Signin = ()=>{
             </form>
         )
     }
+
+
+
+    

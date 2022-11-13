@@ -9,10 +9,9 @@ const initialState = {
     error: null,
 }
 
-const authSlice = createSlice({
+export const authSlice = createSlice({
     name: 'users',
     initialState,
-    reducers:{},
     extraReducers:{
         [userSignup.pending]:(state)=>{
             state.isLoading=true
@@ -58,5 +57,3 @@ const authSlice = createSlice({
         }
     }
 })
-
-export default authSlice.reducer;

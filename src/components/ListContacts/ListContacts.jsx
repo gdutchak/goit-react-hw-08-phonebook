@@ -4,6 +4,7 @@ import { fetchContacts, deleteContactNumber } from 'redux/operationsContacts';
 import { useEffect } from 'react';
 import ClipLoader from "react-spinners/ClipLoader";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { DeleteIcon} from '@chakra-ui/icons'
 
 export const ListContacts = () => {
     const dispatch = useDispatch()
@@ -27,7 +28,9 @@ export const ListContacts = () => {
                 <ButtonList type='ButtonList' onClick={() => {
                     dispatch(deleteContactNumber(id))
                     Notify.warning('This number has deleted from contacts!');
-                }} >Delete</ButtonList>
+                }} >
+                    <DeleteIcon/>
+                    Delete</ButtonList>
             </Item >)}
     </ul >)
 }

@@ -1,7 +1,7 @@
 import { configureStore} from '@reduxjs/toolkit';
-import contactSlice from './sliceContact';
-import authSlice from './sliceAuth';
-import sliceFilter from './sliceFilter';
+import {contactSlice} from './sliceContact';
+import {authSlice} from './sliceAuth';
+import {sliceFilter} from './sliceFilter';
 
 const middleware = 
 (getDefaultMiddleware) =>
@@ -13,9 +13,9 @@ const middleware =
 
 export const store = configureStore({
     reducer: {
-        users: authSlice,
-        contact: contactSlice,
-        filter: sliceFilter,
+        users: authSlice.reducer,
+        contact: contactSlice.reducer,
+        filters: sliceFilter.reducer,
     },
     middleware,
     devTools: process.env.NODE_ENV === 'development',

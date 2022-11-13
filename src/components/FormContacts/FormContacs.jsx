@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Input, Label, Button } from './FormContact.styled';
 import { addContactNumber } from 'redux/operationsContacts';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { AddIcon} from '@chakra-ui/icons'
 
 export function FormContacts() {
     const dispatch = useDispatch()
@@ -48,7 +49,9 @@ export function FormContacts() {
                     required onInput={(e) => { setNumber(e.currentTarget.value) }} value={number}
                 />
             </Label>
-            <Button type="submit">Add contact</Button>
+            <Button type="submit">
+                <AddIcon/>
+                Add contact</Button>
         </form>
     )
 }
