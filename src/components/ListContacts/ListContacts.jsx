@@ -8,28 +8,25 @@ import { DeleteIcon} from '@chakra-ui/icons'
 
 export const ListContacts = () => {
     const dispatch = useDispatch()
-    let contact = useSelector((state) => state.contacts);
-    // .items
-    const filter = useSelector((state) => state.filter);
-    const loading = useSelector((state) => state.contacts)
-    // .isLoading
+    let contact = useSelector((state) => state.number.contacts.items);    
+    const filter = useSelector((state) => state.filter.filter);
+    const loading = useSelector((state) => state.number.contacts.isLoading)
 
     useEffect(() => {
         dispatch(fetchContacts())
     }, [dispatch])
 
     if (filter) {
-        // contact = contact.filter(({ name }) => name.toLowerCase().includes(filter.toLowerCase()));
+        contact = contact.filter(({ name }) => name.toLowerCase().includes(filter.toLowerCase()));
     }
     return (<ul>
         {loading && <ClipLoader />}
-        {contact && contact.map(({ name, phone, id }) =>
-            <Item key={id}>{name}: {phone}
-                <ButtonList type='ButtonList' onClick={() => {
-                    dispatch(deleteContactNumber(id))
-                    Notify.warning('This number has deleted from contacts!');
-                }} >
-                    <DeleteIcon/>
+        {contact && contact.map(({ name, number, id }) =>
+            <Item key={id}>{name}: {number}
+                <ButtonList type='button' onClick={() => 
+                dispatch(deleteContactNumber(id),Notify.warning('This number has deleted from contacts!'))
+                } >
+                    <DeleteIcon marginRight={2} />
                     Delete</ButtonList>
             </Item >)}
     </ul >)

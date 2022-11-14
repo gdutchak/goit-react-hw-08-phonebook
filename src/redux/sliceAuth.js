@@ -10,7 +10,7 @@ let initialState = {
 }
 
 export const authSlice = createSlice({
-    name: 'users',
+    name: 'auth',
     initialState,
     extraReducers:{
         [userSignup.pending]:(state)=>{
@@ -61,12 +61,12 @@ export const authSlice = createSlice({
         },
         [getCurrentUser.fulfilled]: (state, action)=>{
             state.isLoading=false
-            state.user = action.payload.user
+            state.user = action.payload
             state.isLogin = true
         },
         [getCurrentUser.rejected]: (state, action)=>{
             state.isLoading=false
-            state.error=action.payload
-        }
+            state.error=action.payload.message
+        },    
     }
 })

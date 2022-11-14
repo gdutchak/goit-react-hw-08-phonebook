@@ -30,11 +30,15 @@ export const authLogout = async()=>{
 
 export const authCurrentUser = async(token)=>{
 try {
-    setToken(token)
+    if(token === ''){
+        throw Error.message('This user does not login')
+    }
+        setToken(token)
     const response = await instance.get('/users/current')
-    return response
+    return response.data
+    
 } catch (error) {
     setToken()
-    throw error
+    throw error.message
 }
 }

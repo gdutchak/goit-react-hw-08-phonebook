@@ -5,7 +5,7 @@ let initialState = {
 }
 
 export const sliceFilter = createSlice({
-    name: 'filters', 
+    name: 'filter', 
     initialState,
     reducers: {
         addFilter: (state, action) => {

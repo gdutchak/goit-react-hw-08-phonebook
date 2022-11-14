@@ -7,7 +7,6 @@ export const getContacts = async()=>{
 
 export const addContacts = async(data)=>{
     const response = await instance.post('/contacts', data)
-    console.log(response);
     return response.data
 }
 

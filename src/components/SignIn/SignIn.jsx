@@ -1,6 +1,6 @@
 import { userSignup } from "redux/operationsAuth";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { Navigate} from "react-router-dom";
 import { AtSignIcon, EmailIcon, LockIcon} from '@chakra-ui/icons';
 import {
     Box,
@@ -14,7 +14,7 @@ import {
 
 export const Signin = ()=>{
     const dispatch = useDispatch()
-    const login = useSelector((state)=>state.isLogin)
+    const login = useSelector((state)=>state.auth.isLogin)
 
     const handleSubmit = e=>{
         e.preventDefault()
@@ -25,9 +25,10 @@ export const Signin = ()=>{
         }
         return dispatch(userSignup(data))
     }
-    if(login){
-        return <Navigate to='/contacts'/>
-    }
+
+        if(login){
+            return <Navigate to='/contacts'/>
+        }
     
         return(
 <Flex bg="gray.100" align="center" justify="center" h="100vh">

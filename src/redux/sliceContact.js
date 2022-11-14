@@ -10,7 +10,7 @@ let initialState = {
 }
 
 export const contactSlice = createSlice({
-    name: 'contact', 
+    name: 'number', 
     initialState,
     extraReducers: {
         [fetchContacts.pending]: (state) => {
@@ -29,22 +29,22 @@ export const contactSlice = createSlice({
         },
         [addContactNumber.fulfilled]: (state, action) => {
             state.contacts.isLoading = false
-            state.contacts.items.push(action.payload)
+            state.contacts.items.push(action.meta.arg)
         },
         [addContactNumber.rejected]: (state, action) => {
             state.contacts.isLoading = false
-            state.contacts.error = action.payload
+            state.contacts.error = action.payload.response.statusText
         },
         [deleteContactNumber.pending]: (state) => {
             state.contacts.isLoading = true
         },
         [deleteContactNumber.fulfilled]: (state, action) => {
             state.contacts.isLoading = false
-            state.contacts.items = state.contacts.items.filter(({ id }) => id !== action.payload)
+            state.contacts.items = state.contacts.items.filter(({ id }) => id !== action.payload.id)
         },
         [deleteContactNumber.rejected]: (state, action) => {
             state.contacts.isLoading = false
-            state.contacts.error = action.payload
+            state.contacts.error = action.payload.response.statusText
         },
     }
 })

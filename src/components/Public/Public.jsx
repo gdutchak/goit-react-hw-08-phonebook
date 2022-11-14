@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 
 export const Public = ({restricted}) =>{
-    const token = useSelector(state=>state.token)
+    const token = useSelector(state=>state.auth.token)
 
     if (token && restricted){
         return <Navigate to='/contacts'/>

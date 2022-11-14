@@ -8,8 +8,7 @@ import { AddIcon} from '@chakra-ui/icons'
 
 export function FormContacts() {
     const dispatch = useDispatch()
-    const contact = useSelector((state) => state.contacts)
-    // .items
+    const contact = useSelector((state) => state.number.contacts.items)
 
     const [name, setName] = useState('')
     const [number, setNumber] = useState('')
@@ -23,7 +22,7 @@ export function FormContacts() {
         let data = {
             id: nanoid(),
             name,
-            phone: number,
+            number,
         }
         dispatch(addContactNumber(data))
         Notify.success('This number has added in contacts!');
@@ -50,7 +49,7 @@ export function FormContacts() {
                 />
             </Label>
             <Button type="submit">
-                <AddIcon/>
+                <AddIcon marginRight={2}/>
                 Add contact</Button>
         </form>
     )

@@ -18,10 +18,9 @@ export const addContactNumber = createAsyncThunk(
     async (contact, {rejectWithValue}) => {
         try {
             const response = await addContacts(contact)
-            console.log(response);
             return response
             } catch (error) {
-                return rejectWithValue(error)
+                return rejectWithValue(error.message)
             }}
 )
 export const deleteContactNumber = createAsyncThunk(
@@ -31,7 +30,7 @@ export const deleteContactNumber = createAsyncThunk(
            const response = await deleteContacts(id)
            return response
         } catch (error) {
-            return rejectWithValue(error)
+            return rejectWithValue(error.message)
         }
     }
 )

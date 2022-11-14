@@ -35,3 +35,14 @@ display: block;
 width: 70%;
 margin: 0 auto;
 `
+export const H1=styled.h1`
+font-size: 28px;
+font-weight: 700;
+text-align: center;
+border: 1px solid blue;
+`
+export const SectionContacts = styled.section`
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+`

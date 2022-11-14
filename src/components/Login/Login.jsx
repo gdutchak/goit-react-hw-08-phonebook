@@ -14,7 +14,7 @@ import {
 
 export const Login = ()=>{
 const dispatch= useDispatch();
-const login = useSelector(state=>state.isLogin)
+const login = useSelector(state=>state.auth.isLogin)
 
     const handleSubmit = e=>{
         e.preventDefault()
