@@ -15,7 +15,7 @@ import './index.css';
  
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={null}> 
       <BrowserRouter basename='goit-react-hw-08-phonebook'>
@@ -25,5 +25,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </BrowserRouter>
       </PersistGate>
     </Provider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
