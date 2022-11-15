@@ -1,13 +1,15 @@
-import { NavLink } from "react-router-dom";
 import { ArrowBackIcon} from '@chakra-ui/icons'
+import { Container, ErrorMessage, LinkError } from "./Error.styled";
 
-export const Error = ()=>{
+const Error = ()=>{
     return(
-        <>
-        <p>Ooops, this page was not found</p>
-        <NavLink to={'/'}>
+        <Container>
+        <ErrorMessage>Ooops, this page was not found:(</ErrorMessage>
+        <LinkError to={'/'}>
             <ArrowBackIcon/>
-            Go back to home page</NavLink>
-        </>
+            Go back to home page</LinkError>
+        </Container>
     )
 }
+
+export default Error;

@@ -21,13 +21,14 @@ border-radius: 4px;
 export const Box = styled.section`
 background-color: white;
 margin: 0 20px;
+margin-top: 35px;
 `
 
 export const Div = styled.div`
 display: flex;
 justify-content: flex-end;
-margin-bottom: 35px;
 padding: 20px 20px;
+background-color: #e8f4f969;
 `
 
 export const Img = styled.img`

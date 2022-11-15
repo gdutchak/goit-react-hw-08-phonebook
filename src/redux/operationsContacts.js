@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getContacts, addContacts, deleteContacts } from "./apiContacts";
 
 export const fetchContacts = createAsyncThunk(
@@ -8,6 +9,10 @@ export const fetchContacts = createAsyncThunk(
             const response = await getContacts()
             return response
         } catch (error) {
+            if(error.response.status === 500){
+                
+                Notify.warning('Server error, try again:(')
+            }
             return rejectWithValue(error.message)
         }
     },
@@ -20,6 +25,9 @@ export const addContactNumber = createAsyncThunk(
             const response = await addContacts(contact)
             return response
             } catch (error) {
+                if(error.response.status === 400){
+                    Notify.failure('Error creating contact, try again:(')
+                }
                 return rejectWithValue(error.message)
             }}
 )
@@ -30,6 +38,9 @@ export const deleteContactNumber = createAsyncThunk(
            const response = await deleteContacts(id)
            return response
         } catch (error) {
+            if(error.response.status === 500){
+                Notify.warning('Server error, try again:(')
+            }
             return rejectWithValue(error.message)
         }
     }

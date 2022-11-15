@@ -1,6 +1,6 @@
-import { FormContacts } from '../components/FormContacts/FormContacs';
-import { Filter } from "..//components/Filter/Filter";
-import { ListContacts } from "../components/ListContacts/ListContacts";
+import FormContacts from '../components/FormContacts/FormContacs';
+import Filter from "..//components/Filter/Filter";
+import ListContacts from "../components/ListContacts/ListContacts";
 import LogoutPage from './LogOut';
 import { H1, SectionContacts } from 'components/Home/Home.styled';
 

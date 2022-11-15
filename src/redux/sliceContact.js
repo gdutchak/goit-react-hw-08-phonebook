@@ -44,7 +44,7 @@ export const contactSlice = createSlice({
         },
         [deleteContactNumber.rejected]: (state, action) => {
             state.contacts.isLoading = false
-            state.contacts.error = action.payload.response.statusText
+            state.contacts.error = action.payload.response
         },
     }
 })

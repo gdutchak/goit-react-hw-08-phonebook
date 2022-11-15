@@ -1,4 +1,4 @@
-import { Logout } from "components/LogOut/LogOut"
+import Logout from "components/LogOut/LogOut"
 
 const LogoutPage = ()=>{
     return(

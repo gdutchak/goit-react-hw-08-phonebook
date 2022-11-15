@@ -6,7 +6,7 @@ import { addContactNumber } from 'redux/operationsContacts';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { AddIcon} from '@chakra-ui/icons'
 
-export function FormContacts() {
+function FormContacts() {
     const dispatch = useDispatch()
     const contact = useSelector((state) => state.number.contacts.items)
 
@@ -31,6 +31,7 @@ export function FormContacts() {
     }
 
     return (
+        <>
         <form onSubmit={addContactItem}>
             <Label> Name
                 <Input type="text"
@@ -52,5 +53,8 @@ export function FormContacts() {
                 <AddIcon marginRight={2}/>
                 Add contact</Button>
         </form>
+        </>
     )
 }
+
+export default FormContacts;

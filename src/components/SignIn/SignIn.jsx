@@ -1,4 +1,3 @@
-import { userSignup } from "redux/operationsAuth";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate} from "react-router-dom";
 import { AtSignIcon, EmailIcon, LockIcon} from '@chakra-ui/icons';
@@ -11,8 +10,9 @@ import {
     Input,
     VStack
   } from "@chakra-ui/react";
+  import { userSignup } from "redux/operationsAuth";
 
-export const Signin = ()=>{
+const Signin = ()=>{
     const dispatch = useDispatch()
     const login = useSelector((state)=>state.auth.isLogin)
 
@@ -66,6 +66,6 @@ export const Signin = ()=>{
         )
     }
 
-
+export default Signin;
 
     

@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 
-export const Private = () =>{
+const Private = () =>{
     const token = useSelector(state=>state.auth.token)
 
     if (!token){
@@ -9,3 +9,5 @@ export const Private = () =>{
     }
     return <Outlet/>
 }
+
+export default Private

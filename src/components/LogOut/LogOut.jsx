@@ -3,7 +3,7 @@ import { ArrowBackIcon} from '@chakra-ui/icons';
 import { userLogout } from "redux/operationsAuth";
 import { Button, Email } from "./LogOut.styled";
 
-export const Logout = ()=>{
+const Logout = ()=>{
     const dispatch = useDispatch()
     const email = useSelector((state)=>state.auth.user.email)
     
@@ -20,3 +20,5 @@ return dispatch(userLogout());
         </>
     )
 }
+
+export default Logout;

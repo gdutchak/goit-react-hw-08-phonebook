@@ -12,7 +12,7 @@ import {
     VStack
   } from "@chakra-ui/react";
 
-export const Login = ()=>{
+const Login = ()=>{
 const dispatch= useDispatch();
 const login = useSelector(state=>state.auth.isLogin)
 
@@ -28,7 +28,8 @@ if(login){
     return <Navigate to={'/contacts'}/>
 }
     return(
-<Flex bg="gray.100" align="center" justify="center" h="100vh">
+        <>
+    <Flex bg="gray.100" align="center" justify="center" h="100vh">
       <Box bg="white" p={6} rounded="md">
             <form autoComplete="on" onSubmit={handleSubmit}>
             <VStack spacing={4} align="flex-start">                
@@ -52,5 +53,8 @@ if(login){
             </form>
             </Box>
     </Flex>
+    </>
     )
 }
+
+export default Login;
