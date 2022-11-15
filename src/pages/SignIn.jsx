@@ -1,7 +1,9 @@
 import { Signin } from "components/SignIn/SignIn";
 
-export const SigninPage = ()=>{
+const SigninPage = ()=>{
     return(
         <Signin/>
     )
 }
+
+export default SigninPage

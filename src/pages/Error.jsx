@@ -1,7 +1,9 @@
 import { Error } from "components/Error/Error"
 
-export const ErrorPage = ()=>{
+const ErrorPage = ()=>{
     return(
         <Error/>
     )
 }
+
+export default ErrorPage

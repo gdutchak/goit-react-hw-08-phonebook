@@ -1,7 +1,9 @@
 import { Logout } from "components/LogOut/LogOut"
 
-export const LogoutPage = ()=>{
+const LogoutPage = ()=>{
     return(
         <Logout/>
     )
 }
+
+export default LogoutPage

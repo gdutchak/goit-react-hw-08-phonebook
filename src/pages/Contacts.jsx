@@ -1,10 +1,10 @@
 import { FormContacts } from '../components/FormContacts/FormContacs';
 import { Filter } from "..//components/Filter/Filter";
 import { ListContacts } from "../components/ListContacts/ListContacts";
-import { LogoutPage } from './LogOut';
+import LogoutPage from './LogOut';
 import { H1, SectionContacts } from 'components/Home/Home.styled';
 
-export const Contacts = ()=>{
+const Contacts = ()=>{
 
     return(
         <SectionContacts>
@@ -19,3 +19,5 @@ export const Contacts = ()=>{
         </SectionContacts>
     )
 }
+
+export default Contacts

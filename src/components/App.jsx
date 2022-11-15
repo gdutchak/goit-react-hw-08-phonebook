@@ -1,17 +1,20 @@
-import { Contacts } from "pages/Contacts"
-import { ErrorPage } from "pages/Error"
-import { HomePage } from "pages/Home"
-import { LoginPage } from "pages/LogIn"
-import { LogoutPage } from "pages/LogOut"
-import { SigninPage } from "pages/SignIn"
-import { useEffect } from "react"
-import {  Route, Routes } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
-import { getCurrentUser } from "redux/operationsAuth"
-import { Private } from "./Private/Private"
-import { Public } from "./Public/Public"
+import { useEffect } from "react";
+import {  Route, Routes } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getCurrentUser } from "redux/operationsAuth";
+import { Private } from "./Private/Private";
+import { Public } from "./Public/Public";
+import { lazy,Suspense } from "react";
 
-export function App() {
+const Contacts = lazy(()=>import('../pages/Contacts'))
+const ErrorPage = lazy (()=>import('../pages/Error'))
+const HomePage = lazy (()=>import('../pages/Home'))
+const LoginPage = lazy(()=>import('../pages/LogIn'))
+const LogoutPage = lazy(()=>import('../pages/LogOut'))
+const SigninPage = lazy(()=>import('../pages/SignIn'))
+
+
+function App() {
   const isLogin = useSelector(state=>state.auth.isLogin)
   const dispatch = useDispatch()
 
@@ -25,8 +28,9 @@ export function App() {
   }
 
   return (
-    <Routes> 
-<Route path="/" element={<HomePage/>}/>
+    <Suspense fallback={null}>
+      <Routes> 
+      <Route path="/" element={<HomePage/>}/>
 
       <Route path="/" element={<Public restricted/>}>
       <Route path="/signup" element={<SigninPage/>}/>
@@ -41,9 +45,10 @@ export function App() {
       <Route path="*" element={<ErrorPage/>}/>
 
     </Routes>
+    </Suspense>
   )
 }
-
+ export default App;
 
 
 
