@@ -1,6 +1,6 @@
-import { Route, Routes } from "react-router-dom";
+import {  Route, Routes } from "react-router-dom";
 import { lazy,Suspense } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch} from "react-redux";
 import { useEffect } from "react";
 import { getCurrentUser } from "redux/operationsAuth";
 import Private from "./Private/Private";
@@ -20,6 +20,7 @@ function App() {
   useEffect(()=>{
    dispatch(getCurrentUser())
   }, [dispatch])
+
 
   return (
     <Suspense fallback={null} >

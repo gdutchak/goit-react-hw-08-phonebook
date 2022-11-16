@@ -25,7 +25,7 @@ const ListContacts = () => {
     }
     return (<ul>
         {loading && <ClipLoader />}
-        {contact && contact.map(({ name, number, id }) =>
+        {contact && contact.map(({ id,name, number }) =>
             <Item key={id}>{name}: {number}
                 <ButtonList type='button' onClick={() => {
                 dispatch(deleteContactNumber(id))

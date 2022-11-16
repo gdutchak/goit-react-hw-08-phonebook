@@ -29,7 +29,7 @@ export const contactSlice = createSlice({
         },
         [addContactNumber.fulfilled]: (state, action) => {
             state.contacts.isLoading = false
-            state.contacts.items.push(action.meta.arg)
+            state.contacts.items.push(action.payload)
         },
         [addContactNumber.rejected]: (state, action) => {
             state.contacts.isLoading = false
