@@ -33,7 +33,7 @@ try {
     if(token === ''){
         throw Error.message('This user does not login')
     }
-        setToken(token)
+    setToken(token)
     const response = await instance.get('/users/current')
     return response.data
     

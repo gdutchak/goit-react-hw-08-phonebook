@@ -11,7 +11,7 @@ const ListContacts = () => {
     let contact = useSelector((state) => state.number.contacts.items);    
     const filter = useSelector((state) => state.filter.filter);
     const loading = useSelector((state) => state.number.contacts.isLoading)
-    const isLogin = useSelector((state=>state.auth.isLogin))
+    const isLogin = useSelector((state)=>state.auth.isLogin)
 
     useEffect(() => {
         if(!isLogin){

@@ -57,7 +57,7 @@ export const getCurrentUser = createAsyncThunk(
         try {
             const {auth} = getState()
                 const response = await authCurrentUser(auth.token)
-                return response
+                return response;
         } catch (error) {
            return rejectWithValue(error)
         }
