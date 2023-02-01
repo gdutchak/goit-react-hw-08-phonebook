@@ -3,6 +3,7 @@ import Layout from "components/Layout/Layout";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
+import Contacts from "./Contacts";
 
 
 const HomePage =()=>{
@@ -10,7 +11,7 @@ const HomePage =()=>{
     const loading = useSelector(state=>state.auth.isLoading)
     return(
         loading && <ClipLoader/>,
-        !loading && isLogin ? <Navigate to={'/contacts'}/> : (
+        !loading && isLogin ? <Contacts/> : (
         <>
         <Layout/>
         <Home/>
